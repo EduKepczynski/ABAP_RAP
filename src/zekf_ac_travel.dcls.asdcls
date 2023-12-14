@@ -1,0 +1,15 @@
+@EndUserText.label: 'Access Control for ZEKF_DD_TRAVEL'
+@MappingRole: true
+define role ZEKF_AC_TRAVEL {
+    grant
+        select
+            on
+                ZEKF_DD_TRAVEL
+                    where
+                        CurrencyCode = 'EUR'
+                        and
+                        ( TravelStatus ) = aspect pfcg_auth ( ZEKF_OSTAT, ZEKF_STAT, ACTVT = '03' )
+                        or true // Workaround because of ABAP Trial Environment restrictions
+                        ;
+                        
+}
