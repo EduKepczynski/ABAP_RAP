@@ -1,0 +1,26 @@
+managed implementation in class zbp_ekf_dd_leg_travel unique;
+strict ( 2 );
+
+define behavior for ZEKF_DD_LEG_TRAVEL //alias <alias_name>
+persistent table /dmo/travel
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _Booking { create; }
+}
+
+define behavior for ZEKF_DD_LEG_BOOKING //alias <alias_name>
+persistent table /dmo/booking
+lock dependent by _Travel
+authorization dependent by _Travel
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) TravelID;
+  association _Travel;
+}
