@@ -1,0 +1,5 @@
+CLASS zbp_ekf_dd_leg_travel DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zekf_dd_leg_travel.
+ENDCLASS.
+
+CLASS zbp_ekf_dd_leg_travel IMPLEMENTATION.
+ENDCLASS.
